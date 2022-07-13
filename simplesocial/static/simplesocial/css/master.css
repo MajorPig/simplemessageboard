@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    background-color: white;
+    color:black;
+    overflow-x: scroll
+  }
+
+.mynav{
+    background-color: blue;
+    color: white;
+    font-size: 1.7em;
+}
+
+.main-index{
+    margin-top: 30px;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+.main-groups-list{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.navbar-dark{
+    background-color: blue;
+}
+
+.top_bar{
+    background-color: blue;
+}
+
+.navigation{
+    color: white;
+    font-size: 1.2em;
+}
+
+.navi{
+    color:white;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.user{
+    font-size: 1.2em;
+}
+
+.mycontent{
+    margin-top: 30px;
+}
+
+.userlog{
+    text-align: center;
+}
+
+.group-name{
+    margin-bottom: 20px;
+}
+
+.post-media{
+    padding-top: 20px;
+}
+
+.group-desc{
+    margin-bottom: 20px;
+}
+
+.content{
+    margin-top: 20px;
+}
+
+.post-detail{
+    margin-bottom: 20px;
+}

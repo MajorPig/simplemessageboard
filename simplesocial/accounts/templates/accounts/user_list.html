@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container col-md-12">
+        {% if user.is_authenticated %}
+            <h2>User list:</h2>
+            <ul>
+            {% for user in object_list  %}
+                <li><a class="user" href="{% url 'posts:for_user' username=user.username %}">@{{ user.username }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No users to show. Please log in to view users</p>
+        {% endif %}
+    </div>
+
+{% endblock content %}

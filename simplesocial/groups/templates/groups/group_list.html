@@ -1,0 +1,58 @@
+{% extends 'groups/group_base.html' %}
+
+{% block pregroup %}
+    {% if user.is_authenticated %}
+        <div class="col-md-4">
+            <div class="content">
+                {% if user.is_authenticated %}
+                    <h2>
+                        Welcome back <br>
+                        <a class="user" href="{% url 'posts:for_user' username=user.username %}">@{{user.username}}</a>
+                    </h2>
+                {% endif %}
+                <hr>
+                <h2>Groups</h2>
+                <p>Welcome to the groups page</p>
+            </div>
+            {% if user.is_authenticated %}
+                <a class="btn btn-warning" href="{% url 'groups:create' %}">Create new group</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="col-md-12 main-groups-list">
+            <h3>Please login or signup to view this page</h3>
+        </div>
+    {% endif %}
+{% endblock pregroup %}
+
+{% block group_content %}
+    {% if user.is_authenticated %}
+        <div class="col-md-8">
+            <div class="list-group">
+                {% for group in object_list %}
+                    <a class="list-group-item" href="{% url 'groups:single' slug=group.slug %}">
+                        <h3 class="title list-group-item-heading">{{group.name}}</h3>
+                        <div class="list-group-item-next container-fluid">
+                            {{group.description|safe}}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="badge bg-secondary">{{group.members.count}}</span>
+                                    member{{group.memebers.count|pluralize}}
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="badge bg-secondary">{{group.posts.count}}</span>
+                                    post{{group.posts.count|pluralize}}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock  %}
+
+
+
+
